@@ -1,5 +1,12 @@
 # JavaScript HTTP Requests - 2 Hour Lesson Plan
 
+<!-- http://api.blah.com/users -->
+<!-- rtc://111.111.11 -->
+<!-- wss:// -->
+<!-- rtmp:// -->
+<!-- ftp:// -->
+<!-- graphql:// -->
+
 ## Objective
 
 By the end of this lesson, students will understand the evolution of HTTP requests in JavaScript, including XHR, Promises, async/await, Fetch API, and Axios. They will also be able to implement HTTP requests using these methods.

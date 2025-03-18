@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch</title>
+  </head>
+  <body>
+    <script>
+      const url = "https://randomuser.me/api";
+
+      async function getData(url) {
+        const res = await fetch(url);
+        const json = await res.json();
+        return json;
+        // return new Promise(function (resolve, reject) {
+        //   var xhr = new XMLHttpRequest();
+        //   xhr.open("GET", url, true);
+        //   xhr.onload = function () {
+        //     if (xhr.status >= 200 && xhr.status < 400) {
+        //       var data = JSON.parse(xhr.responseText);
+        //       resolve(data);
+        //     } else {
+        //       reject(new Error("Request failed: " + xhr.statusText));
+        //     }
+        //   };
+        //   xhr.onerror = function () {
+        //     reject(new Error("Request failed"));
+        //   };
+        //   xhr.send();
+        // });
+      }
+
+      async function makeRequest() {
+        const res = await getData(url);
+        return res;
+      }
+
+      async function display() {
+        const val = await makeRequest();
+        // document.body.innerHTML = JSON.stringify(val);
+        const name = val.results[0].name.first;
+        const picture = val.results[0].picture.medium;
+        const randomUser = randomUserCard(picture, name);
+        document.body.appendChild(randomUser);
+
+        document.body.appendChild(document.createElement("button"));
+      }
+
+      // get antoher person
+      function getAnotherPerson() {}
+
+      // remove person
+      function removePerson() {}
+
+      // plus person buton
+      function plusPersonButton() {}
+
+      function randomUserCard(picture, name) {
+        const div = document.createElement("div");
+
+        const img = document.createElement("img");
+        const h3 = document.createElement("h3");
+        img.src = picture;
+        img.alt = "hello";
+        h3.innerText = name;
+        div.appendChild(img);
+        div.appendChild(h3);
+        return div;
+      }
+
+      display();
+
+      // function sum(a, b) {
+      //   return a + b;
+      // }
+
+      // const j = getDataAndDisplay().then((data) => {
+      //   console.log("data =", data);
+      // });
+    </script>
+  </body>
+</html>
